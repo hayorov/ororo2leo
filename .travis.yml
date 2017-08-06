@@ -1,0 +1,20 @@
+language: python
+python:
+- '2.7'
+- '3.6'
+before_install:
+- pip install --upgrade setuptools pip
+install:
+- pip install -r requirements.txt
+- pip install -r test-requirements.txt
+script: python setup.py flake8
+deploy:
+  provider: pypi
+  user: allexx
+  password:
+    secure: l8JkWSOV+3slyh6NVDXMvPiENdcuJo+9zLaPpIU2JHNY5nIDxs6+5RzMrAZa5Soh3EH7j+azLBSv+qQzxnPAmz/02CVzm6YRwkphJ2hgzjV8ecDqaQc4NvIY0k13eOxuwIBfZ6U+BGkJCpbzY/jtP/MGgbpTte4n27i4rGOUTXsK+e39EIg1sqJe8EZfcbblSz7xrQHJNDY8RLG7ksFEs8xncw6cj4FJCjKGA221sEoYypfsHpLqMOL4qjh1pjJlPgZlmz6vNEE+fgfg+qpRM9u/irfc/COQ8VhAF4W3nAzHLUdcWyQzRUWubrFqXBamd5eU/egia8FrRv43xiBAAizBqbVIU+zB7frpCFcMq1kOKUBfyHPbEWN7oGTbDgoiCdD/to9TQZHAe+PKzxgbgXrqspTWCW6CSBvhC7yLKwicNEVH2YQLBu4khKjC9IT6jUTN2MPNW2o8sB5qTyKiu+4wEJiV3zCP3reGenodwUMYxoEGeQra5v2VhpIVp7uK2pXGuewVFDTCRG6xZZXoDMeGNPO2YlHwiM1Czwhk+lSVaVGIX6Nko6covgjWxzWqOWV5a30CuHp9PpV81WCCsc6UY/fWelPTkO/WTQC82d0+VNk4YIPCdDuMjF6sBm1uiXjSXMrBYcZakkG0C61PVhmBfMiGL6hmBkmTN2Xhuvw=
+  on:
+    tags: true
+    all_branches: true
+    distributions: sdist bdist_wheel
+    repo: hayorov/ororo2leo
